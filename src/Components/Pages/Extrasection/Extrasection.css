@@ -1,0 +1,48 @@
+.popular-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0px 4px 6px gray;
+  transition: transform 0.5s ease;
+}
+
+.popular-item:hover {
+  transform: scale(1.05);
+}
+
+.popular-item__image {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.popular-item__content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 16px;
+  background-color: gray;
+  color: #fff;
+  opacity: 0;
+  transform: translateY(100%);
+  transition: opacity 0.3s, transform 0.3s;
+}
+
+.popular-item:hover .popular-item__content {
+  opacity: 2;
+  transform: translateY(0);
+}
+
+.popular-item__title {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 8px;
+  text-align: center;
+}
+
+.popular-item__description {
+  font-size: 14px;
+  text-align: center;
+}

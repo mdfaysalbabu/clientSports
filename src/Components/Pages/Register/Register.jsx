@@ -64,6 +64,19 @@ const Register = () => {
                   className="w-full border border-gray-300 p-2 rounded"
                 />
               </div>
+              <div className="mb-6">
+                <label
+                  htmlFor="confirmPassword"
+                  className="block text-gray-700 text-sm font-bold mb-2"
+                >
+                  Photo url:
+                </label>
+                <input
+                  type="text"
+                  id="confirmPassword"
+                  className="w-full border border-gray-300 p-2 rounded"
+                />
+              </div>
               <button
                 type="submit"
                 className="w-full bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600"
