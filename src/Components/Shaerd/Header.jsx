@@ -14,6 +14,9 @@ const Header = () => {
       <li>
         <Link to="/order/salad">Class</Link>
       </li>
+      <li>
+        <Link to="/dashboard/students">Dashboard</Link>
+      </li>
 
       {/* {
                 isAdmin ? <li><Link to= '/dashboard/adminhome'>Dashboard</Link></li> : 
