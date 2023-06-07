@@ -1,4 +1,5 @@
 import Extrasection from "../Extrasection/Extrasection";
+import PopularSection from "../PopularSection/PopularSection";
 
 const Banner = () => {
   return (
@@ -38,6 +39,9 @@ const Banner = () => {
             </div>
           </div>
         </div>
+      </div>
+      <div>
+         <PopularSection></PopularSection>
       </div>
       <Extrasection></Extrasection>
     </div>

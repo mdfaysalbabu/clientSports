@@ -11,13 +11,17 @@
   },
   "dependencies": {
     "@headlessui/react": "^1.7.15",
+    "@react-spring/web": "^9.7.2",
+    "awesome-react-components": "^0.0.4",
     "firebase": "^9.22.1",
     "localforage": "^1.10.0",
     "match-sorter": "^6.3.1",
     "react": "^18.2.0",
     "react-awesome-slider": "^4.1.0",
     "react-dom": "^18.2.0",
+    "react-hook-form": "^7.44.3",
     "react-router-dom": "^6.11.2",
+    "react-spring": "^9.7.1",
     "sort-by": "^1.2.0",
     "sweetalert2": "^11.7.11"
   },
