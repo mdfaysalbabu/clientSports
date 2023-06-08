@@ -1,47 +1,72 @@
+// import { Carousel } from "react-responsive-carousel";
+import { useEffect, useState } from "react";
 import Extrasection from "../Extrasection/Extrasection";
 import PopularSection from "../PopularSection/PopularSection";
+import AwesomeSlider from "react-awesome-slider";
+import "react-awesome-slider/dist/styles.css";
+import PopularClass from "../PopularSection/PopularClass";
 
 const Banner = () => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % 3);
+    }, 4000);
+
+    return () => {
+      clearInterval(interval);
+    };
+  }, []);
   return (
-    <div className="">
-      <div className="bg-gradient-to-r from-purple-600 via-pink-500 to-red-500 text-white ">
-        <div className="container mx-auto px-4">
-          <div className="py-8 md:py-16">
-            <h1 className="text-4xl md:text-6xl font-bold mb-4">
-              Welcome to Our Website
-            </h1>
-            <p className="text-lg md:text-2xl">
-              Discover amazing products and services
-            </p>
-          </div>
-        </div>
-        <div className="relative">
-          <img
-            src="https://wheefootball.files.wordpress.com/2015/12/all-sports-banner.png"
-            alt="Slider"
-            className="object-cover md:w-full md:h-screen"
-          />
-          <div className="absolute inset-0 flex items-center justify-center">
-            <div className="max-w-3xl text-center">
-              <h2 className="text-3xl md:text-4xl font-bold mb-4">
-                Discover Our Products
+    <div>
+      <div className="w-full">
+        <AwesomeSlider
+          className="aws-btn"
+          bullets={false}
+          organicArrows={true}
+          selected={currentIndex}
+          onTransitionEnd={({ currentIndex }) => setCurrentIndex(currentIndex)}
+        >
+          <div data-src="https://indiansportsassociation.org/wp-content/uploads/2019/06/banner.jpg">
+            <div className="slider-overlay">
+              <h2 className="text-4xl font-bold text-white">
+                Welcome to Our Website
               </h2>
-              <p className="text-lg md:text-xl text-gray-200 mb-6">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean
-                tristique urna et nibh aliquam, eu pellentesque massa finibus.
+              <p className="text-lg text-white">
+                Discover the best courses and instructors
               </p>
-              <a
-                href="#"
-                className="bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700"
-              >
-                Learn More
-              </a>
+              <button className="btn-primary">Get Started</button>
             </div>
           </div>
-        </div>
+          <div data-src="https://indiansportsassociation.org/wp-content/uploads/2019/06/banner.jpg">
+            <div className="slider-overlay">
+              <h2 className="text-4xl font-bold text-white">
+                Learn from Top Instructors
+              </h2>
+              <p className="text-lg text-white">
+                Master new skills and expand your knowledge
+              </p>
+              <button className="btn-primary">Explore Courses</button>
+            </div>
+          </div>
+          <div data-src="https://indiansportsassociation.org/wp-content/uploads/2019/06/banner.jpg">
+            <div className="slider-overlay">
+              <h2 className="text-4xl font-bold text-white">
+                Join Our Community
+              </h2>
+              <p className="text-lg text-white">
+                Connect with like-minded learners and experts
+              </p>
+              <button className="btn-primary">Join Now</button>
+            </div>
+          </div>
+        </AwesomeSlider>
       </div>
       <div>
-         <PopularSection></PopularSection>
+        <PopularClass></PopularClass>
+      </div>
+      <div>
+        <PopularSection></PopularSection>
       </div>
       <Extrasection></Extrasection>
     </div>

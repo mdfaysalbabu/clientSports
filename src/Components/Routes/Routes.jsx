@@ -7,6 +7,11 @@ import Instructor from "../Pages/Instructor/Instructor";
 import Errorpage from "../Pages/Errorpage/Errorpage";
 import Dashboard from "../Layout/Dashboard/Dashboard";
 import Students from "../Pages/Dashboard/Students/Students";
+import Enroll from "../Pages/Dashboard/Students/Enroll";
+import Addclass from "../Pages/Dashboard/Instructor/Addclass";
+import Secret from "./Secret";
+import PrivetRoutes from "./PrivetRoutes";
+import Alluser from "../Pages/Dashboard/AllUser/Alluser";
 
 const router = createBrowserRouter([
   {
@@ -31,6 +36,10 @@ const router = createBrowserRouter([
         element: <Instructor></Instructor>,
       },
       {
+        path:'secret',
+        element:<PrivetRoutes><Secret></Secret></PrivetRoutes>
+      },
+      {
         path: "dashboard",
         element: <Dashboard></Dashboard>,
         children: [
@@ -38,6 +47,19 @@ const router = createBrowserRouter([
             path: "students",
             element:<Students></Students>
           },
+          {
+            path:"enroll",
+            element:<Enroll></Enroll>
+          },
+          {
+            path:"totalUser",
+            element:<Alluser></Alluser>
+          },
+          // instructor Routes
+          {
+             path:"addClass",
+             element:<Addclass></Addclass>
+          }
         ],
       },
     ],

@@ -1,8 +1,18 @@
 // import { Link } from "react-router-dom";
 
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../Providers/Authprovider";
 
 const Header = () => {
+  const { user, logout } = useContext(AuthContext);
+  const handleLogOut = () => {
+    logout()
+      .then(() => {})
+      .catch((error) => {
+        console.log(error);
+      });
+  };
   const headerOption = (
     <>
       <li>
@@ -16,6 +26,9 @@ const Header = () => {
       </li>
       <li>
         <Link to="/dashboard/students">Dashboard</Link>
+      </li>
+      <li>
+        <Link to="secret">Secret</Link>
       </li>
 
       {/* {
@@ -31,18 +44,6 @@ const Header = () => {
               </button>
             </Link>
           </li> */}
-      {/* {user ? (
-            <>
-              <span>{user?.displayName}</span>
-              <button onClick={handleLogOut} className="btn btn-ghost">
-                Logout
-              </button>
-            </>
-          ) : (
-            <>
-              <Link to="/login">Login</Link>
-            </>
-          )} */}
     </>
   );
   return (
@@ -79,7 +80,18 @@ const Header = () => {
           <ul className="menu menu-horizontal px-1">{headerOption}</ul>
         </div>
         <div className="navbar-end">
-          <Link to='login'><a className="btn">Login</a></Link>
+          {user ? (
+            <>
+              <span className="text-white">{user?.displayName}</span>
+              <button onClick={handleLogOut} className="btn btn-ghost">
+                Logout
+              </button>
+            </>
+          ) : (
+            <>
+              <Link to="/login">Login</Link>
+            </>
+          )}
         </div>
       </div>
     </div>

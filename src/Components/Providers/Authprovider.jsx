@@ -8,7 +8,7 @@ import {
   signOut,
   updateProfile,
 } from "firebase/auth";
-import { createContext, useEffect } from "react";
+import { createContext, useEffect, useState } from "react";
 import app from "../../../Firebase";
 
 export const AuthContext = createContext(null);
@@ -42,6 +42,8 @@ const Authprovider = ({ children }) => {
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
+      // get token and set localStorage token
+      
       setLoading(false);
     });
     return () => {
