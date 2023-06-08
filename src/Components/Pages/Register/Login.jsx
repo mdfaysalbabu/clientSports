@@ -1,9 +1,10 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Providers/Authprovider";
 import { useForm } from "react-hook-form";
 import SocialLogin from "./SocialLogin";
 import Swal from "sweetalert2";
+import { FaRegEye, FaEyeSlash } from "react-icons/fa";
 
 const Login = () => {
   const {login}=useContext(AuthContext)
@@ -29,6 +30,12 @@ const Login = () => {
     .catch(error=>{
       console.log(error.message);
     })
+  }
+
+  //hide/visible
+  const [visible, setVisible] = useState(false);
+  const handlePassword = () => {
+    setVisible(!visible);
   }
   return (
     <div>
@@ -62,14 +69,19 @@ const Login = () => {
                 Password:
               </label>
               <input
-                type="password"
+                type={visible ? 'text' : 'password'}
                 {...register("password", { required: true })}
                 id="password"
                 name="password"
                 className="w-full border border-gray-300 p-2 rounded"
               />
+              <button className="relative -top-8 left-72 text-xl w-fit" onClick={handlePassword}>
+                {
+                  visible ? <FaRegEye /> : <FaEyeSlash />
+                }
+              </button>
               {errors.password && (
-                <span className="text-red-600">Name is required</span>
+                <span className="text-red-600">Password is required</span>
               )}
             </div>
             <button

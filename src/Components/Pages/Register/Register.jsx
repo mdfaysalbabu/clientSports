@@ -4,8 +4,12 @@ import { AuthContext } from "../../Providers/Authprovider";
 import { Link, useNavigate } from "react-router-dom";
 import SocialLogin from "./SocialLogin";
 import Swal from "sweetalert2";
+import { FaRegEye, FaEyeSlash } from "react-icons/fa";
+
 const Register = () => {
   const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowVConfirmPassword] = useState(false);
+
   const { createUser, updateUser, logout } = useContext(AuthContext);
   const navigate = useNavigate();
   const {
@@ -64,9 +68,15 @@ const Register = () => {
         });
     }
   };
-  const handleTogglePasswordVisibility = () => {
+
+  // show/hide
+  const handlePasswordVisibility = () => {
     setShowPassword(!showPassword);
   };
+
+  const handleConfirmPasswordVisibility = () => {
+    setShowVConfirmPassword(!showConfirmPassword);
+  }
   return (
     <div className="">
       <div className="flex flex-col items-center justify-center min-h-screen bg-violet-400 p-40">
@@ -137,14 +147,13 @@ const Register = () => {
                 placeholder="Enter Password"
                 className="input input-bordered"
               />
-              <p
-                className=" rounded-lg bg-black text-white"
-                onClick={handleTogglePasswordVisibility}
-              >
-                {showPassword ? "Hide" : "Show"}
-              </p>
+              <button className="relative -top-8 left-96 w-it" onClick={handlePasswordVisibility}>
+                {
+                  showPassword ? <FaRegEye /> : <FaEyeSlash />
+                }
+              </button>
               {errors.password && (
-                <span className=" text-red-500">Password Length 6 to </span>
+                <span className=" text-red-500">Password must be 6 characters* </span>
               )}
               {errors.password?.type === "pattern" && (
                 <span className=" text-red-500">
@@ -154,10 +163,10 @@ const Register = () => {
             </div>
             <div className="form-control">
               <label className="label">
-                <span className="label-text">Password</span>
+                <span className="label-text">Confirm Password</span>
               </label>
               <input
-                type={showPassword ? "text" : "password"}
+                type={showConfirmPassword ? "text" : "password"}
                 id="confirmPassword"
                 {...register("confirmPassword", {
                   pattern: /(?=.*[0-9].*[0-9])/,
@@ -170,6 +179,11 @@ const Register = () => {
                 placeholder="Enter Password"
                 className="input input-bordered"
               />
+              <button className="relative -top-8 left-96 w-it" onClick={handleConfirmPasswordVisibility}>
+                {
+                  showConfirmPassword ? <FaRegEye /> : <FaEyeSlash />
+                }
+              </button>
               {/* <button className=" rounded-lg bg-black text-white" onClick={handleTogglePasswordVisibility}>
                                     {showPassword ? 'Hide' : 'Show'}
                                 </button> */}

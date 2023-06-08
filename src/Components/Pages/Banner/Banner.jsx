@@ -28,7 +28,7 @@ const Banner = () => {
           onTransitionEnd={({ currentIndex }) => setCurrentIndex(currentIndex)}
         >
           <div data-src="https://indiansportsassociation.org/wp-content/uploads/2019/06/banner.jpg">
-            <div className="slider-overlay">
+            <div className="slider-overlay absolute left-20 lg:top-30 lg:left-96">
               <h2 className="text-4xl font-bold text-white">
                 Welcome to Our Website
               </h2>
@@ -39,7 +39,7 @@ const Banner = () => {
             </div>
           </div>
           <div data-src="https://indiansportsassociation.org/wp-content/uploads/2019/06/banner.jpg">
-            <div className="slider-overlay">
+            <div className="slider-overlay absolute left-20 lg:top-30 lg:left-96">
               <h2 className="text-4xl font-bold text-white">
                 Learn from Top Instructors
               </h2>
@@ -50,7 +50,7 @@ const Banner = () => {
             </div>
           </div>
           <div data-src="https://indiansportsassociation.org/wp-content/uploads/2019/06/banner.jpg">
-            <div className="slider-overlay">
+            <div className="slider-overlay absolute left-20 lg:top-30 lg:left-96">
               <h2 className="text-4xl font-bold text-white">
                 Join Our Community
               </h2>
