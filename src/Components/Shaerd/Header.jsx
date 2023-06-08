@@ -15,19 +15,19 @@ const Header = () => {
   };
   const headerOption = (
     <>
-      <li>
+      <li className="text-teal-500 hover:text-yellow-400 text-xl font-semibold">
         <Link to="/">Home</Link>
       </li>
-      <li>
+      <li className="text-teal-500 hover:text-yellow-400 text-xl font-semibold">
         <Link to="/instructor">Instructor</Link>
       </li>
-      <li>
+      <li className="text-teal-500 hover:text-yellow-400 text-xl font-semibold">
         <Link to="/order/salad">Class</Link>
       </li>
-      <li>
+      <li className="text-teal-500 hover:text-yellow-400 text-xl font-semibold">
         <Link to="/dashboard/students">Dashboard</Link>
       </li>
-      <li>
+      <li className="text-teal-500 hover:text-yellow-400 text-xl font-semibold">
         <Link to="secret">Secret</Link>
       </li>
 
@@ -74,7 +74,9 @@ const Header = () => {
               {headerOption}
             </ul>
           </div>
-          <a className="btn btn-ghost normal-case text-xl">Sports Academy</a>
+          <a className="text-transparent bg-gradient-to-r from-teal-400 to-yellow-400 bg-clip-text font-bold text-3xl">
+            Sports Academy
+          </a>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">{headerOption}</ul>
@@ -82,15 +84,28 @@ const Header = () => {
         <div className="navbar-end">
           {user ? (
             <>
-              <span className="text-white">{user?.displayName}</span>
-              <button onClick={handleLogOut} className="btn btn-ghost">
+              <span className=" mr-5 text-xl text-yellow-500">
+                {user?.displayName}
+              </span>
+              {/* <button onClick={handleLogOut} className="btn btn-ghost">
+                Logout
+              </button> */}
+              <button
+                onClick={handleLogOut}
+                className="bg-gradient-to-r from-purple-500 to-pink-500 hover:from-pink-500 hover:to-purple-500 text-white font-bold py-2 px-4 rounded-full transition duration-300 ease-in-out"
+              >
                 Logout
               </button>
             </>
           ) : (
-            <>
-              <Link to="/login">Login</Link>
-            </>
+            // <>
+            //   <Link to="/login">Login</Link>
+            // </>
+            <Link to="/login">
+              <button className="bg-gradient-to-r from-purple-500 to-indigo-500 hover:from-pink-500 hover:to-purple-500 text-white py-2 px-4 rounded-lg shadow-md transition duration-300">
+                Login
+              </button>
+            </Link>
           )}
         </div>
       </div>

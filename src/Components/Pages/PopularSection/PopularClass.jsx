@@ -26,13 +26,13 @@ const PopularClass = () => {
     // Add more class objects here...
   ];
   return (
-    <section className="py-10 bg-gray-100">
+    <section className="py-10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2 className="text-3xl font-bold text-center mb-6">Popular Classes</h2>
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {classes.map((classItem) => (
             <div
-              className="bg-white shadow-md rounded-md p-6"
+              className="bg-custom-color shadow-md rounded-md p-6 transition duration-300 transform hover:scale-105 hover:shadow-lg"
               key={classItem.id}
             >
               <img
@@ -42,7 +42,7 @@ const PopularClass = () => {
               />
               <h3 className="text-xl font-semibold mb-2">{classItem.title}</h3>
               <p className="text-gray-600 mb-4">{classItem.description}</p>
-              <button className="w-full bg-indigo-600 text-white rounded-md py-2 px-4 hover:bg-indigo-700 transition duration-300">
+              <button className="w-full text-xl text-white rounded-md py-2 px-4 bg-gradient-to-r from-teal-500 to-yellow-400 hover:from-teal-400 hover:to-yellow-500 ">
                 Enroll Now
               </button>
             </div>
