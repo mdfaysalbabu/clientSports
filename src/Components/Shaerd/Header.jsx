@@ -22,7 +22,7 @@ const Header = () => {
         <Link to="/instructor">Instructor</Link>
       </li>
       <li className="text-teal-500 hover:text-yellow-400 text-xl font-semibold">
-        <Link to="/order/salad">Class</Link>
+        <Link to="/classes">Classes</Link>
       </li>
       <li className="text-teal-500 hover:text-yellow-400 text-xl font-semibold">
         <Link to="/dashboard/students">Dashboard</Link>
@@ -48,7 +48,7 @@ const Header = () => {
   );
   return (
     <div>
-      <div className="navbar fixed z-10 bg-opacity-10 bg-black text-white max-w-screen-xl">
+      <div className="navbar z-index bg-violet-800 text-white max-w-screen-xl">
         <div className="navbar-start">
           <div className="dropdown">
             <label tabIndex={0} className="btn btn-ghost lg:hidden">

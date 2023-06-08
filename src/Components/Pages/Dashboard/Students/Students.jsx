@@ -1,62 +1,52 @@
 import { Link } from "react-router-dom";
 
-
 const Students = () => {
   return (
     <div>
-      <div className="uppercase font-bold flex justify-evenly h-[60px] items-center">
+      <div className="uppercase font-bold flex justify-evenly h-[80px] items-center">
         <h3 className="3xl">Total Items </h3>
         <h3 className="3xl">Total Price: </h3>
-        <Link to='/dashboard/payment'><button className="btn btn-warning btn-sm">Pay</button>
+        <Link to="/dashboard/payment">
+          <button className="bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded-xl">
+            Proceed to Payment
+          </button>
         </Link>
       </div>
-      <div className="overflow-x-auto">
-        <table className="table">
-          {/* head */}
-          <thead>
-        <tr>
-          <th className="border border-gray-400 px-4 py-2">Class Name</th>
-          <th className="border border-gray-400 px-4 py-2">Instructor Name</th>
-          <th className="border border-gray-400 px-4 py-2">Available Seats</th>
-          <th className="border border-gray-400 px-4 py-2">Price</th>
-          <th className="border border-gray-400 px-4 py-2">Actions</th>
-        </tr>
-      </thead>
-          <tbody>
-            {/* row 1 */}
+      <div className="bg-pink-200 rounded-lg shadow-lg p-4 overflow-x-auto ms-5">
+        <table className="w-full table-fixed">
+          <thead className="bg-pink-500 text-white">
             <tr>
-              <th>
-                <label>
-                  <input type="checkbox" className="checkbox" />
-                </label>
-              </th>
-              <td>
-                <div className="flex items-center space-x-3">
-                  <div className="avatar">
-                    <div className="mask mask-squircle w-12 h-12">
-                      <img
-                        src="/tailwind-css-component-profile-2@56w.png"
-                        alt="Avatar Tailwind CSS Component"
-                      />
-                    </div>
-                  </div>
-                  <div>
-                    <div className="font-bold">Hart Hagerty</div>
-                  </div>
-                </div>
-              </td>
-              <td>
-                Zemlak, Daniel and Leannon
-              </td>
-              <td>Purple</td>
-              <th>
-                <button className="btn btn-ghost btn-xs">details</button>
-              </th>
+              <th className="w-1/4 px-4 py-2 sm:w-auto">Class Name</th>
+              <th className="w-1/4 px-4 py-2 sm:w-auto">Instructor Name</th>
+              <th className="w-1/4 px-4 py-2 sm:w-auto">Available Seats</th>
+              <th className="w-1/4 px-4 py-2 sm:w-auto">Price</th>
+              <th className="w-1/4 px-4 py-2 sm:w-auto">Actions</th>
             </tr>
-            
-            
+          </thead>
+          <tbody>
+            <tr className="bg-white">
+              <td className="border px-4 py-2 sm:w-auto">Class A</td>
+              <td className="border px-4 py-2 sm:w-auto">John Doe</td>
+              <td className="border px-4 py-2 sm:w-auto">10</td>
+              <td className="border px-4 py-2 sm:w-auto">$100</td>
+              <td className="border px-4 py-2 sm:w-auto">
+                <button className="bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded">
+                  Enroll
+                </button>
+              </td>
+            </tr>
+            <tr className="bg-white">
+              <td className="border px-4 py-2 sm:w-auto">Class B</td>
+              <td className="border px-4 py-2 sm:w-auto">Jane Smith</td>
+              <td className="border px-4 py-2 sm:w-auto">15</td>
+              <td className="border px-4 py-2 sm:w-auto">$120</td>
+              <td className="border px-4 py-2 sm:w-auto">
+                <button className="bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded">
+                  Enroll
+                </button>
+              </td>
+            </tr>
           </tbody>
-          
         </table>
       </div>
     </div>

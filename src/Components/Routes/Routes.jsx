@@ -12,6 +12,8 @@ import Addclass from "../Pages/Dashboard/Instructor/Addclass";
 import Secret from "./Secret";
 import PrivetRoutes from "./PrivetRoutes";
 import Alluser from "../Pages/Dashboard/AllUser/Alluser";
+import Classes from "../Pages/Classes/Classes";
+import Manageclass from "../Pages/Dashboard/Admindashboard/Manageclass";
 
 const router = createBrowserRouter([
   {
@@ -40,6 +42,10 @@ const router = createBrowserRouter([
         element:<PrivetRoutes><Secret></Secret></PrivetRoutes>
       },
       {
+          path:'classes',
+          element:<Classes></Classes>
+      },
+      {
         path: "dashboard",
         element: <Dashboard></Dashboard>,
         children: [
@@ -59,6 +65,11 @@ const router = createBrowserRouter([
           {
              path:"addClass",
              element:<Addclass></Addclass>
+          },
+          // admin routes
+          {
+            path:'manageClass',
+            element:<Manageclass></Manageclass>
           }
         ],
       },

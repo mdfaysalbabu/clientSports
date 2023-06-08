@@ -8,7 +8,7 @@ const Dashboard = () => {
   const isAdmin = true;
   // const [isAdmin] = Useradmin();
   return (
-    <div className="p-40">
+    <div className="">
       <div className="drawer lg:drawer-open">
         <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
         <div className="drawer-content flex flex-col items-center justify-center ">
@@ -22,7 +22,7 @@ const Dashboard = () => {
         </div>
         <div className="drawer-side ">
           <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
-          <ul className="menu p-4 w-80 h-full  bg-purple-700 text-white">
+          <ul className="menu p-4 w-30 h-full  bg-purple-700 text-white">
             <div className="py-4 px-6">
               <h1 className="text-2xl font-bold">Dashboard</h1>
             </div>
@@ -39,7 +39,7 @@ const Dashboard = () => {
                   </Link>
                 </li>
                 <li>
-                  <Link to="/dashboard/manageUser"
+                  <Link to="/dashboard/manageClass"
                     href="#"
                     className="flex items-center py-2 px-4 text-sm font-medium hover:bg-purple-600 transition duration-300"
                   >
@@ -65,6 +65,26 @@ const Dashboard = () => {
                     All User
                   </Link>
                 </li>
+                {/* instructor dashboard link */}
+                <li>
+                  <Link to="/dashboard/addClass"
+                    href="#"
+                    className="flex items-center py-2 px-4 text-sm font-medium hover:bg-purple-600 transition duration-300"
+                  >
+                    <FaRegAddressCard className="h-5 w-5 mr-2" />
+                    Add Class 
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/dashboard/myClass"
+                    href="#"
+                    className="flex items-center py-2 px-4 text-sm font-medium hover:bg-purple-600 transition duration-300"
+                  >
+                    <FaRegAddressCard className="h-5 w-5 mr-2" />
+                    My Class
+                  </Link>
+                </li>
+
               </>
             ) : (
               <>
