@@ -49,12 +49,13 @@ const Authprovider = ({ children }) => {
         .then(data=>{
           console.log(data.data.token)
           localStorage.setItem('total-token',data.data.token)
+          setLoading(false);
         })
       }
       else{
         localStorage.removeItem('total-token')
       }
-      setLoading(false);
+      
     });
     return () => {
       unsubscribe();
@@ -77,7 +78,9 @@ const Authprovider = ({ children }) => {
     updateUser,
   };
   return (
-    <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>
+    <AuthContext.Provider value={authInfo}>
+      {children}
+    </AuthContext.Provider>
   );
 };
 

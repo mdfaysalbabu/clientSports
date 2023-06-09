@@ -1,12 +1,24 @@
 import { Link, Outlet } from "react-router-dom";
-import { FaBookOpen, FaBookmark, FaHome, FaRegAddressCard, FaUserCircle, FaUserShield } from "react-icons/fa";
+import {
+  FaBookOpen,
+  FaBookmark,
+  FaHome,
+  FaRegAddressCard,
+  FaUserCircle,
+  FaUserShield,
+} from "react-icons/fa";
 import Useradmin from "../../Hooks/userAdmin";
-import { FiChrome, FiHome } from "react-icons/fi";
+import { FiHome } from "react-icons/fi";
+import useStudent from "../../Hooks/useStudent";
+import useInstructor from "../../Hooks/useInstructor";
+
 
 const Dashboard = () => {
   // Todo
-  const isAdmin = true;
+  const isAdmin = Useradmin();
   // const [isAdmin] = Useradmin();
+  const [isStudent] = useStudent();
+  const [isInstructor] = useInstructor();
   return (
     <div className="">
       <div className="drawer lg:drawer-open">
@@ -27,10 +39,14 @@ const Dashboard = () => {
               <h1 className="text-2xl font-bold">Dashboard</h1>
             </div>
             {/* Sidebar content here */}
-            {isAdmin ? (
+
+            {/* Admin DashBoard */}
+
+            {isAdmin && (
               <>
                 <li>
-                  <Link to="/"
+                  <Link
+                    to="/"
                     href="#"
                     className="flex items-center py-2 px-4 text-sm font-medium hover:bg-purple-600 transition duration-300"
                   >
@@ -39,7 +55,8 @@ const Dashboard = () => {
                   </Link>
                 </li>
                 <li>
-                  <Link to="/dashboard/manageClass"
+                  <Link
+                    to="/dashboard/manageClass"
                     href="#"
                     className="flex items-center py-2 px-4 text-sm font-medium hover:bg-purple-600 transition duration-300"
                   >
@@ -48,7 +65,8 @@ const Dashboard = () => {
                   </Link>
                 </li>
                 <li>
-                  <Link to="/dashboard/addClassPage"
+                  <Link
+                    to="/dashboard/addClassPage"
                     href="#"
                     className="flex items-center py-2 px-4 text-sm font-medium hover:bg-purple-600 transition duration-300"
                   >
@@ -56,8 +74,9 @@ const Dashboard = () => {
                     Add Class page
                   </Link>
                 </li>
-                 <li>
-                  <Link to="/dashboard/totalUser"
+                <li>
+                  <Link
+                    to="/dashboard/totalUser"
                     href="#"
                     className="flex items-center py-2 px-4 text-sm font-medium hover:bg-purple-600 transition duration-300"
                   >
@@ -65,46 +84,33 @@ const Dashboard = () => {
                     All User
                   </Link>
                 </li>
-                {/* instructor dashboard link */}
-                <li>
-                  <Link to="/dashboard/addClass"
-                    href="#"
-                    className="flex items-center py-2 px-4 text-sm font-medium hover:bg-purple-600 transition duration-300"
-                  >
-                    <FaRegAddressCard className="h-5 w-5 mr-2" />
-                    Add Class 
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/dashboard/myClass"
-                    href="#"
-                    className="flex items-center py-2 px-4 text-sm font-medium hover:bg-purple-600 transition duration-300"
-                  >
-                    <FaRegAddressCard className="h-5 w-5 mr-2" />
-                    My Class
-                  </Link>
-                </li>
-
               </>
-            ) : (
+            )}
+
+            {/* Student DashBoard */}
+
+            {isStudent && (
               <>
                 <li>
-                  <Link to="/"
+                  <Link
+                    to="/"
                     href="#"
                     className="flex items-center py-2 px-4 text-sm font-medium hover:bg-purple-600 transition duration-300"
                   >
                     <FiHome className="h-5 w-5 mr-2" />
                     User Home
                   </Link>
-                  <Link to="/dashboard/students"
+                  <Link
+                    to="/dashboard/students"
                     href="#"
                     className="flex items-center py-2 px-4 text-sm font-medium hover:bg-purple-600 transition duration-300"
                   >
                     <FaBookOpen className="h-5 w-5 mr-2" />
                     My Selected Classes
                   </Link>
-                
-                  <Link to="/dashboard/enroll"
+
+                  <Link
+                    to="/dashboard/enroll"
                     href="#"
                     className="flex items-center py-2 px-4 text-sm font-medium hover:bg-purple-600 transition duration-300"
                   >
@@ -112,12 +118,47 @@ const Dashboard = () => {
                     My Enrolled Classes
                   </Link>
                 </li>
-                {/* <li>
-                  <Link to="/dashboard/totalUser">All User</Link>
-                </li> */}
               </>
             )}
 
+            {/* Instructor DashBoard */}
+
+            {isInstructor && (
+              <>
+                <li>
+                  <Link
+                    to="/"
+                    href="#"
+                    className="flex items-center py-2 px-4 text-sm font-medium hover:bg-purple-600 transition duration-300"
+                  >
+                    <FiHome className="h-5 w-5 mr-2" />
+                    User Home
+                  </Link>
+                  <Link
+                    to="/dashboard/addClass"
+                    href="#"
+                    className="flex items-center py-2 px-4 text-sm font-medium hover:bg-purple-600 transition duration-300"
+                  >
+                    <FaBookOpen className="h-5 w-5 mr-2" />
+                    Add a Class
+                  </Link>
+
+                  <Link
+                    to="/dashboard/myClass"
+                    href="#"
+                    className="flex items-center py-2 px-4 text-sm font-medium hover:bg-purple-600 transition duration-300"
+                  >
+                    <FaRegAddressCard className="h-5 w-5 mr-2" />
+                    My Class
+                  </Link>
+                </li>
+                {/* <li>
+                <Link to="/dashboard/totalUser">All User</Link>
+              </li> */}
+              </>
+            )}
+         
+         {/* dashBoard Under */}
             <div className="divider"></div>
             <li>
               <Link>

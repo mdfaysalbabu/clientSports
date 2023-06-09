@@ -19,7 +19,7 @@ const Banner = () => {
   }, []);
   return (
     <div>
-      <div className="w-full">
+      <div className="w-full ">
         <AwesomeSlider
           className="aws-btn"
           bullets={false}
@@ -27,37 +27,52 @@ const Banner = () => {
           selected={currentIndex}
           onTransitionEnd={({ currentIndex }) => setCurrentIndex(currentIndex)}
         >
-          <div data-src="https://indiansportsassociation.org/wp-content/uploads/2019/06/banner.jpg">
+          <div data-src="https://media.umbraco.io/dwtc/00wmrjpv/academies_banner_v5.jpg">
             <div className="slider-overlay absolute left-20 lg:top-30 lg:left-96">
-              <h2 className="text-4xl font-bold text-white">
-                Welcome to Our Website
+              <h2 className="text-4xl font-bold text-gradient bg-gradient-to-r from-red-500 to-teal-500  text-transparent  bg-clip-text">
+                Welcome to Our Academy
               </h2>
-              <p className="text-lg text-white">
-                Discover the best courses and instructors
+              <p className="text-1xl font-bold text-center text-gradient bg-gradient-to-r from-orange-500 to-red-500  text-transparent  bg-clip-text">
+                Discover The Best Courses and Instructors
               </p>
-              <button className="btn-primary">Get Started</button>
+              <div className="text-center mt-5">
+                <button className="bg-gradient-to-r from-orange-500 to-pink-500 hover:from-pink-500 hover:to-orange-500 text-white font-bold py-2 px-4 rounded">
+                  Get Started
+                </button>
+              </div>
             </div>
           </div>
-          <div data-src="https://indiansportsassociation.org/wp-content/uploads/2019/06/banner.jpg">
+          <div data-src="https://png.pngtree.com/background/20210711/original/pngtree-blue-sky-picture-image_1113901.jpg">
             <div className="slider-overlay absolute left-20 lg:top-30 lg:left-96">
-              <h2 className="text-4xl font-bold text-white">
+              <h2 className="text-4xl font-bold text-gradient bg-gradient-to-r from-red-500 to-teal-500  text-transparent  bg-clip-text">
                 Learn from Top Instructors
               </h2>
-              <p className="text-lg text-white">
+              <p className="text-1xl font-bold text-center text-gradient bg-gradient-to-r from-orange-500 to-red-500  text-transparent  bg-clip-text">
                 Master new skills and expand your knowledge
               </p>
-              <button className="btn-primary">Explore Courses</button>
+              <div className="text-center mt-5">
+                <button className="bg-gradient-to-r from-orange-500 to-pink-500 hover:from-pink-500 hover:to-orange-500 text-white font-bold py-2 px-4 rounded">
+                  Explore Courses
+                </button>
+              </div>
             </div>
           </div>
-          <div data-src="https://indiansportsassociation.org/wp-content/uploads/2019/06/banner.jpg">
+          <div
+            className=""
+            data-src="https://indiansportsassociation.org/wp-content/uploads/2019/06/banner.jpg"
+          >
             <div className="slider-overlay absolute left-20 lg:top-30 lg:left-96">
-              <h2 className="text-4xl font-bold text-white">
+              <h2 className="text-4xl font-bold text-gradient bg-gradient-to-r from-red-500 to-teal-500  text-transparent  bg-clip-text">
                 Join Our Community
               </h2>
-              <p className="text-lg text-white">
+              <p className="text-1xl font-bold text-center text-gradient bg-gradient-to-r from-orange-500 to-red-500  text-transparent  bg-clip-text">
                 Connect with like-minded learners and experts
               </p>
-              <button className="btn-primary">Join Now</button>
+              <div className="text-center mt-5">
+                <button className="bg-gradient-to-r from-orange-500 to-pink-500 hover:from-pink-500 hover:to-orange-500 text-white font-bold py-2 px-4 rounded">
+                  Join Now
+                </button>
+              </div>
             </div>
           </div>
         </AwesomeSlider>

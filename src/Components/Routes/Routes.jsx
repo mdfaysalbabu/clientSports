@@ -26,23 +26,23 @@ const router = createBrowserRouter([
         element: <Banner></Banner>,
       },
       {
-        path: "login",
+        path: "/login",
         element: <Login></Login>,
       },
       {
-        path: "register",
+        path: "/register",
         element: <Register></Register>,
       },
       {
-        path: "instructor",
+        path: "/instructor",
         element: <Instructor></Instructor>,
       },
       {
-        path:'secret',
+        path:'/secret',
         element:<PrivetRoutes><Secret></Secret></PrivetRoutes>
       },
       {
-          path:'classes',
+          path:'/classes',
           element:<Classes></Classes>
       },
       {
