@@ -1,7 +1,11 @@
+import { useContext } from "react";
 import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
+import { AuthContext } from "../../../Providers/Authprovider";
 
 const Addclass = () => {
+  const {user}=useContext(AuthContext)
+  // console.log(user?.email);
   const {
     register,
     reset,
@@ -10,6 +14,7 @@ const Addclass = () => {
   } = useForm();
 
   const onSubmit = (classData) => {
+    console.log(classData);
     fetch("http://localhost:4000/class", {
       method: "POST",
       headers: {
@@ -27,7 +32,9 @@ const Addclass = () => {
             title: " add in the class",
             showConfirmButton: false,
             timer: 1500,
+            
           });
+          reset;
         } else {
           console.log("error");
         }
@@ -51,7 +58,7 @@ const Addclass = () => {
             type="text"
             id="className"
             name="name"
-            {...register("name", { required: true })}
+            {...register("name", {required: true })}
             className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
             required
           />
@@ -82,7 +89,7 @@ const Addclass = () => {
           <input
             type="text"
             id="instructorName"
-            name="instructorName"
+            defaultValue={user?.displayName} readOnly
             {...register("instructorName", { required: true })}
             className="w-full px-4 py-2 border border-gray-300 rounded-lg bg-gray-100 cursor-not-allowed"
             // value={instructor.displayName}
@@ -98,7 +105,7 @@ const Addclass = () => {
           <input
             type="email"
             id="instructorEmail"
-            name="instructorEmail"
+            defaultValue={user?.email} readOnly
             {...register("instructorEmail", { required: true })}
             className="w-full px-4 py-2 border border-gray-300 rounded-lg bg-gray-100 cursor-not-allowed"
             // value={instructor.email}
@@ -133,8 +140,21 @@ const Addclass = () => {
             required
           />
         </div>
+        <div className="mb-4">
+          <label htmlFor="status" className="text-gray-700 font-semibold mb-2">
+            status
+          </label>
+          <input
+            type="text"
+             defaultValue={'pending'}
+             readOnly
+            {...register("status", { required: true })}
+            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+            required
+          />
+        </div>
         <div className="text-center">
-          <input type="submit" value="Add class" />
+          <input className="bg-gradient-to-r btn from-purple-500 to-red-400 hover:from-teal-400 hover:to-yellow-500  text-white font-semibold  hover:text-white transition-all duration-300" type="submit" value="Add class" />
         </div>
       </form>
     </div>

@@ -12,10 +12,10 @@ const ClassCard = ({item}) => {
           alt="Class Image"
         />
         <div className="p-4 flex flex-col items-center">
-          <h2 className="text-white text-2xl font-bold mb-2">Class Name : {name}</h2>
-          <p className="text-gray-300">Instructor: {instructorName}</p>
-          <p className="text-gray-300">Instructor Email: {instructorEmail}</p>
-          <div className="flex items-center text-gray-300 mb-2">
+          <h2 className="text-yellow-500 text-2xl font-bold mb-1">Class Name : {name}</h2>
+          <p className="text-yellow-500 text-xl font-bold">Instructor: {instructorName}</p>
+          <p className="text-yellow-500 text-xl font-bold">Instructor Email: {instructorEmail}</p>
+          <div className="flex items-center text-yellow-500 text-xl font-bold mb-2">
             <p className="mr-4">Available Seats: {seats}</p>
             <p>Price: ${price}</p>
           </div>

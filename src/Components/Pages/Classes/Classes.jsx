@@ -14,7 +14,7 @@ const Classes = () => {
   return (
     <div>
        <h2 className="text-center font-bold text-4xl mt-5 mb-5">All Class Page</h2>
-       <div>
+       <div className="grid md:grid-cols-3 md:gap-5 md:m-10">
         {
           classes.map(item=>(
             <ClassCard item={item} key={item._id}></ClassCard>

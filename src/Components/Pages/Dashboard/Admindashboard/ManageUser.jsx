@@ -59,6 +59,7 @@ const ManageUser = () => {
             <tr>
               <th className="px-4 py-3 bg-gray-100">Name</th>
               <th className="px-4 py-3 bg-gray-100">Email</th>
+              <th className="px-4 py-3 bg-gray-100">Role</th>
               <th className="px-4 py-3 bg-gray-100">Make Admin</th>
               <th className="px-4 py-3 bg-gray-100">Make Instructor</th>
             </tr>
@@ -68,31 +69,33 @@ const ManageUser = () => {
               <tr key={user.id} className="hover:bg-gray-100">
                 <td className="border px-3 py-3">{user.name}</td>
                 <td className="border px-3 py-3">{user.email}</td>
+                <td className="border px-3 py-3">{user.role==='admin' &&'admin'}
+                {user.role==='instructor' && 'instructor'}
+                {user.role!=='admin' && user.role!=='instructor'?
+                'user':''
+                }
+                </td>
                 <td className="border px-3 py-3">
-                  {user.role === "admin" ? (
-                    "admin"
-                  ) : (
-                    <button
+                 
+                    <button disabled={`${user.role==='admin' || user.role=="instructor"?true:''}`}
                       onClick={() => handleAdmin(user)}
                       className=" btn-ghost bg-purple-500 btn text-white"
                     >
                       <FaUserShield></FaUserShield>
                     </button>
-                  )}
+            
                 </td>
-                {/* instructor role */}
+               
                 <td className="border px-3 py-3">
 
-                  {user.role === "instructor" ? (
-                    "instructor"
-                  ) : (
-                    <button
+                  
+                    <button disabled={`${user.role==='admin' || user.role=="instructor"?true:''}`}
                       onClick={() => handleInstructor(user)}
                       className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
                     >
                       Instructor
                     </button>
-                  )}
+                
                 </td>
               </tr>
             ))}

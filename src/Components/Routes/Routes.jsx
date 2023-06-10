@@ -77,6 +77,7 @@ const router = createBrowserRouter([
           {
             path:'manageClass',
             element:<Manageclass></Manageclass>
+          
           },
           {
             path:'manageUser',
