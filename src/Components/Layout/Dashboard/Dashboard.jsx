@@ -22,6 +22,7 @@ const Dashboard = () => {
   console.log(isAdmin);
 
   // const isStudent = useStudent();
+  // console.log(isStudent)
   const isInstructor = useInstructor()
   console.log(isInstructor);
   return (
@@ -85,7 +86,7 @@ const Dashboard = () => {
 
             {/* Student DashBoard */}
 
-            {/* {isStudent && (
+            {/* {isStudent && 
               <>
                 <li>
                   <Link
@@ -115,7 +116,7 @@ const Dashboard = () => {
                   </Link>
                 </li>
               </>
-            )} */}
+            } */}
 
             {/* Instructor DashBoard */}
 

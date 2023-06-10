@@ -19,6 +19,6 @@ const useStudent = () => {
       return res.data;
     },
   });
-  return isStudent;
+  return isStudent?.isStudent;
 };
 export default useStudent;
