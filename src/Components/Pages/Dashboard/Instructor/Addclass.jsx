@@ -1,28 +1,27 @@
 import { useState } from "react";
+import { useForm } from "react-hook-form";
 
 const Addclass = () => {
+  const {
+    register,
+    reset,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
   const [className, setClassName] = useState("");
   const [classImage, setClassImage] = useState("");
   const [availableSeats, setAvailableSeats] = useState(0);
   const [price, setPrice] = useState(0);
 
-  const handleAddClass = (e) => {
-    e.preventDefault();
-
-    // Form validation and class addition logic here
-    // You can use the state values to create a new class object and add it to your class list or database
-
-    // Reset form fields
-    setClassName("");
-    setClassImage("");
-    setAvailableSeats(0);
-    setPrice(0);
+  const handleAddClass = (data) => {
+    console.log(data)
   };
+  
   return (
-    <div>
+    <div className="bg-teal-400">
       <form
-        onSubmit={handleAddClass}
-        className="max-w-md mx-auto p-4 bg-white rounded-lg shadow-lg"
+        onSubmit={handleSubmit(handleAddClass)}
+        className="max-w-md mx-auto p-4 bg-teal-400 rounded-lg shadow-lg"
       >
         <div className="mb-4">
           <label
@@ -34,6 +33,8 @@ const Addclass = () => {
           <input
             type="text"
             id="className"
+            name="name"
+            {...register("name", { required: true })}
             className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
             value={className}
             onChange={(e) => setClassName(e.target.value)}
@@ -50,6 +51,8 @@ const Addclass = () => {
           <input
             type="text"
             id="classImage"
+            name="image"
+            {...register("image", { required: true })}
             className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
             value={classImage}
             onChange={(e) => setClassImage(e.target.value)}
@@ -66,6 +69,8 @@ const Addclass = () => {
           <input
             type="text"
             id="instructorName"
+            name="instructorName"
+            {...register("instructorName", { required: true })}
             className="w-full px-4 py-2 border border-gray-300 rounded-lg bg-gray-100 cursor-not-allowed"
             // value={instructor.displayName}
             readOnly
@@ -81,6 +86,8 @@ const Addclass = () => {
           <input
             type="email"
             id="instructorEmail"
+            name="instructorEmail"
+            {...register("instructorEmail", { required: true })}
             className="w-full px-4 py-2 border border-gray-300 rounded-lg bg-gray-100 cursor-not-allowed"
             // value={instructor.email}
             readOnly
@@ -96,6 +103,8 @@ const Addclass = () => {
           <input
             type="number"
             id="availableSeats"
+            name="seats"
+            {...register("seats", { required: true })}
             className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
             value={availableSeats}
             onChange={(e) => setAvailableSeats(parseInt(e.target.value))}
@@ -109,18 +118,22 @@ const Addclass = () => {
           <input
             type="number"
             id="price"
+            name="price"
+            {...register("price", { required: true })}
             className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
             value={price}
             onChange={(e) => setPrice(parseFloat(e.target.value))}
             required
           />
         </div>
-        <button
-          type="submit"
-          className="bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600"
-        >
-          Add
-        </button>
+        <div className="text-center">
+          <button
+            type="submit"
+            className="bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600 "
+          >
+            Add Class
+          </button>
+        </div>
       </form>
     </div>
   );

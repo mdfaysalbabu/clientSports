@@ -1,25 +1,22 @@
 
 import { useQuery } from "@tanstack/react-query"
-import useAxiosSecure from "./useAxiosSecure"
 import useAuth from "./useAuth"
+import axios from "axios";
 
 const Useradmin=()=>{
-    // const token = localStorage.getItem('access-token');
-    const [axiosSecure]=useAxiosSecure();
-
-    const{user,loading}=useAuth();
+    const{user}=useAuth();
     console.log(user)
 
-const{data:isAdmin,isLoading:isAdminLoading}=useQuery({
+const{data:isAdmin}=useQuery({
     queryKey:['isAdmin',user?.email],
-    enabled: !loading,
     queryFn:async()=>{
-        const res = await axiosSecure.get(`/users/admin/${user?.email}`);
+        const res = await axios.get(`http://localhost:4000/users/admin/${user?.email}`);
         
-        console.log('is admin response',res)
-        return res.data.admin
+        // console.log('is admin response',res)
+        return res.data
     }
 })
-return[isAdmin,isAdminLoading]
+// console.log(isAdmin);
+return isAdmin?.admin;
 }
 export default Useradmin;

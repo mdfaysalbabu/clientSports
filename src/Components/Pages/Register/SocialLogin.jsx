@@ -10,7 +10,8 @@ const SocialLogin = () => {
   const from = location.state?.from?.pathname || "/";
 
   const handleGoogle = () => {
-    googleLogin().then((result) => {
+    googleLogin().
+    then((result) => {
       const loggedUser = result.user;
       console.log(loggedUser);
       const saveUser = {

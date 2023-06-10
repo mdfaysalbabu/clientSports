@@ -1,14 +1,14 @@
 import { useQuery } from "@tanstack/react-query";
-
 import { FaUserShield } from "react-icons/fa";
 import Swal from "sweetalert2";
 
-const Alluser = () => {
+const ManageUser = () => {
   const { data: users = [], refetch } = useQuery(["users"], async () => {
     const res = await fetch("http://localhost:4000/users");
     const data = await res.json();
     return data;
   });
+
   const handleAdmin = (user) => {
     fetch(`http://localhost:4000/users/admin/${user._id}`, {
       method: "PATCH",
@@ -28,6 +28,25 @@ const Alluser = () => {
         }
       });
   };
+  const handleInstructor = (user) => {
+    fetch(`http://localhost:4000/users/instructor/${user._id}`, {
+      method: "PATCH",
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        if (data.modifiedCount) {
+          refetch();
+          Swal.fire({
+            position: "top-end",
+            icon: "success",
+            title: `${user.name} is an instructor ready`,
+            showConfirmButton: false,
+            timer: 1500,
+          });
+        }
+      });
+  };
   return (
     <div>
       <h2 className="text-center font-bold text-3xl mb-5">
@@ -40,8 +59,8 @@ const Alluser = () => {
             <tr>
               <th className="px-4 py-3 bg-gray-100">Name</th>
               <th className="px-4 py-3 bg-gray-100">Email</th>
-              <th className="px-4 py-3 bg-gray-100">Roll</th>
-              <th className="px-4 py-3 bg-gray-100">Action</th>
+              <th className="px-4 py-3 bg-gray-100">Make Admin</th>
+              <th className="px-4 py-3 bg-gray-100">Make Instructor</th>
             </tr>
           </thead>
           <tbody>
@@ -61,10 +80,19 @@ const Alluser = () => {
                     </button>
                   )}
                 </td>
+                {/* instructor role */}
                 <td className="border px-3 py-3">
-                  <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-                    Action
-                  </button>
+
+                  {user.role === "instructor" ? (
+                    "instructor"
+                  ) : (
+                    <button
+                      onClick={() => handleInstructor(user)}
+                      className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+                    >
+                      Instructor
+                    </button>
+                  )}
                 </td>
               </tr>
             ))}
@@ -75,4 +103,4 @@ const Alluser = () => {
   );
 };
 
-export default Alluser;
+export default ManageUser;

@@ -5,7 +5,7 @@ import {
   FaHome,
   FaRegAddressCard,
   FaUserCircle,
-  FaUserShield,
+  
 } from "react-icons/fa";
 import Useradmin from "../../Hooks/userAdmin";
 import { FiHome } from "react-icons/fi";
@@ -15,10 +15,15 @@ import useInstructor from "../../Hooks/useInstructor";
 
 const Dashboard = () => {
   // Todo
-  const isAdmin = Useradmin();
-  // const [isAdmin] = Useradmin();
-  const [isStudent] = useStudent();
-  const [isInstructor] = useInstructor();
+  // const object= Useradmin();
+  // console.log(object);
+  
+  const isAdmin=Useradmin();
+  console.log(isAdmin);
+
+  // const isStudent = useStudent();
+  const isInstructor = useInstructor()
+  console.log(isInstructor);
   return (
     <div className="">
       <div className="drawer lg:drawer-open">
@@ -42,7 +47,7 @@ const Dashboard = () => {
 
             {/* Admin DashBoard */}
 
-            {isAdmin && (
+            {isAdmin && 
               <>
                 <li>
                   <Link
@@ -51,7 +56,7 @@ const Dashboard = () => {
                     className="flex items-center py-2 px-4 text-sm font-medium hover:bg-purple-600 transition duration-300"
                   >
                     <FiHome className="h-5 w-5 mr-2" />
-                    User Home
+                    Admin Home
                   </Link>
                 </li>
                 <li>
@@ -66,30 +71,21 @@ const Dashboard = () => {
                 </li>
                 <li>
                   <Link
-                    to="/dashboard/addClassPage"
+                    to="/dashboard/manageUser"
                     href="#"
                     className="flex items-center py-2 px-4 text-sm font-medium hover:bg-purple-600 transition duration-300"
                   >
                     <FaRegAddressCard className="h-5 w-5 mr-2" />
-                    Add Class page
+                    Manage Users
                   </Link>
                 </li>
-                <li>
-                  <Link
-                    to="/dashboard/totalUser"
-                    href="#"
-                    className="flex items-center py-2 px-4 text-sm font-medium hover:bg-purple-600 transition duration-300"
-                  >
-                    <FaUserShield className="h-5 w-5 mr-2" />
-                    All User
-                  </Link>
-                </li>
+                
               </>
-            )}
+            }
 
             {/* Student DashBoard */}
 
-            {isStudent && (
+            {/* {isStudent && (
               <>
                 <li>
                   <Link
@@ -98,7 +94,7 @@ const Dashboard = () => {
                     className="flex items-center py-2 px-4 text-sm font-medium hover:bg-purple-600 transition duration-300"
                   >
                     <FiHome className="h-5 w-5 mr-2" />
-                    User Home
+                    Student Home
                   </Link>
                   <Link
                     to="/dashboard/students"
@@ -119,11 +115,11 @@ const Dashboard = () => {
                   </Link>
                 </li>
               </>
-            )}
+            )} */}
 
             {/* Instructor DashBoard */}
 
-            {isInstructor && (
+            {isInstructor && 
               <>
                 <li>
                   <Link
@@ -132,7 +128,7 @@ const Dashboard = () => {
                     className="flex items-center py-2 px-4 text-sm font-medium hover:bg-purple-600 transition duration-300"
                   >
                     <FiHome className="h-5 w-5 mr-2" />
-                    User Home
+                    Instructor Home
                   </Link>
                   <Link
                     to="/dashboard/addClass"
@@ -156,7 +152,7 @@ const Dashboard = () => {
                 <Link to="/dashboard/totalUser">All User</Link>
               </li> */}
               </>
-            )}
+            }
          
          {/* dashBoard Under */}
             <div className="divider"></div>
