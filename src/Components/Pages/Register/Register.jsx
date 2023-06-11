@@ -52,7 +52,7 @@ const Register = () => {
                     timer: 1500,
                   });
                   logout().then(() => {
-                    navigate("/");
+                    navigate("/login");
                   });
                 }
               })

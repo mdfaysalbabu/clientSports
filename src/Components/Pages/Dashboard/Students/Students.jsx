@@ -7,7 +7,7 @@ const Students = () => {
         <h3 className="3xl">Total Items </h3>
         <h3 className="3xl">Total Price: </h3>
         <Link to="/dashboard/payment">
-          <button className="bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded-xl">
+          <button className="bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded">
             Proceed to Payment
           </button>
         </Link>
@@ -20,7 +20,7 @@ const Students = () => {
               <th className="w-1/4 px-4 py-2 sm:w-auto">Instructor Name</th>
               <th className="w-1/4 px-4 py-2 sm:w-auto">Available Seats</th>
               <th className="w-1/4 px-4 py-2 sm:w-auto">Price</th>
-              <th className="w-1/4 px-4 py-2 sm:w-auto">Actions</th>
+              <th className="w-1/4 px-4 py-2 sm:w-auto">Action</th>
             </tr>
           </thead>
           <tbody>
@@ -30,9 +30,11 @@ const Students = () => {
               <td className="border px-4 py-2 sm:w-auto">10</td>
               <td className="border px-4 py-2 sm:w-auto">$100</td>
               <td className="border px-4 py-2 sm:w-auto">
-                <button className="bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded">
-                  Enroll
-                </button>
+                <Link to="/dashboard/payment">
+                  <button className="bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded">
+                    Proceed to Payment
+                  </button>
+                </Link>
               </td>
             </tr>
             <tr className="bg-white">

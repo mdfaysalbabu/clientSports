@@ -163,7 +163,7 @@ const Dashboard = () => {
             </li>
             <li className=" text-sm font-medium hover:bg-purple-600 transition duration-300">
               <Link>
-                <FaReadme className="h-5 w-5 mr-2"></FaReadme>Review
+                <FaReadme className="h-5 w-5 mr-2"></FaReadme>Analysis
               </Link>
             </li>
             
