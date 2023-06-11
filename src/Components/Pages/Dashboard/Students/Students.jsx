@@ -1,6 +1,19 @@
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../../Providers/Authprovider";
+import { useContext, useEffect, useState } from "react";
 
 const Students = () => {
+  const {user}=useContext(AuthContext)
+  const [classes,setClasses]=useState([])
+  useEffect(()=>{
+    fetch(`http://localhost:4000/carts/${user?.email}`)
+    .then(res=>res.json())
+    .then(data=>{
+      console.log(data)
+      setClasses(data)
+    })
+  },[user?.email])
+  
   return (
     <div>
       <div className="uppercase font-bold flex justify-evenly h-[80px] items-center">
@@ -24,11 +37,14 @@ const Students = () => {
             </tr>
           </thead>
           <tbody>
-            <tr className="bg-white">
-              <td className="border px-4 py-2 sm:w-auto">Class A</td>
-              <td className="border px-4 py-2 sm:w-auto">John Doe</td>
-              <td className="border px-4 py-2 sm:w-auto">10</td>
-              <td className="border px-4 py-2 sm:w-auto">$100</td>
+            {
+              classes.map(item=> <tr className="bg-white"
+              key={item._id}
+              >
+              <td className="border px-4 py-2 sm:w-auto">{item.name}</td>
+              <td className="border px-4 py-2 sm:w-auto">{item.instructorName}</td>
+              <td className="border px-4 py-2 sm:w-auto">{item.seats}</td>
+              <td className="border px-4 py-2 sm:w-auto">${item.price}</td>
               <td className="border px-4 py-2 sm:w-auto">
                 <Link to="/dashboard/payment">
                   <button className="bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded">
@@ -36,18 +52,10 @@ const Students = () => {
                   </button>
                 </Link>
               </td>
-            </tr>
-            <tr className="bg-white">
-              <td className="border px-4 py-2 sm:w-auto">Class B</td>
-              <td className="border px-4 py-2 sm:w-auto">Jane Smith</td>
-              <td className="border px-4 py-2 sm:w-auto">15</td>
-              <td className="border px-4 py-2 sm:w-auto">$120</td>
-              <td className="border px-4 py-2 sm:w-auto">
-                <button className="bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded">
-                  Enroll
-                </button>
-              </td>
-            </tr>
+            </tr>)
+            }
+           
+            
           </tbody>
         </table>
       </div>

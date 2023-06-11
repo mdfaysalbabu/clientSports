@@ -84,15 +84,15 @@ const Manageclass = () => {
                   {item.status}
                 </td>
                 <td className="border px-2 py-8">
-                  <button disabled={`${item.status==='approved' ||
-                  item.status==='denied' ?true:''}`} 
+                  <button disabled={`${item?.status==='approved' ||
+                  item?.status==='denied' ?true:''}`} 
                     onClick={() => handleApprove(item, true)}
                     className="bg-teal-500 py-3  text-white font-bold my-2 px-4 rounded mr-2 text-xs"
                   >
                     Approve
                   </button>
-                  <button disabled={`${item.status==='approved' ||
-                  item.status==='denied' ?true:''}`} 
+                  <button disabled={`${item?.status==='approved' ||
+                  item?.status==='denied' ?true:''}`} 
                     onClick={() => handleApprove(item, false)}
                     className="bg-red-500  text-white font-bold py-2 px-4 rounded mr-2 text-xs my-2"
                   >

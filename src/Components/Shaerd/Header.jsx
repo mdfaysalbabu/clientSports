@@ -44,12 +44,13 @@ const Header = () => {
       <li className="text-teal-500 hover:text-yellow-400 text-xl font-semibold">
         <Link to="/classes">Classes</Link>
       </li>
+      
+     {
+      user &&
       <li className="text-teal-500 hover:text-yellow-400 text-xl font-semibold">
         <Link to="/dashboard">Dashboard</Link>
       </li>
-      <li className="text-teal-500 hover:text-yellow-400 text-xl font-semibold">
-        <Link to="secret">Secret</Link>
-      </li>
+     }
 
       <li>
         <label className="swap swap-rotate">

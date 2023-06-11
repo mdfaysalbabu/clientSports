@@ -77,7 +77,7 @@ const ManageUser = () => {
                 </td>
                 <td className="border px-3 py-3">
                  
-                    <button disabled={`${user.role==='admin' || user.role=="instructor"?true:''}`}
+                    <button disabled={`${user.role==='admin' ?true:''}`}
                       onClick={() => handleAdmin(user)}
                       className=" btn-ghost bg-purple-500 btn text-white"
                     >
@@ -89,7 +89,7 @@ const ManageUser = () => {
                 <td className="border px-3 py-3">
 
                   
-                    <button disabled={`${user.role==='admin' || user.role=="instructor"?true:''}`}
+                    <button disabled={`${user.role==='instructor'?true:''}`}
                       onClick={() => handleInstructor(user)}
                       className="btn-ghost bg-teal-700 btn text-white font-bold py-2 px-4 rounded"
                     >

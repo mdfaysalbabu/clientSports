@@ -10,7 +10,6 @@ import {
 } from "react-icons/fa";
 import Useradmin from "../../Hooks/userAdmin";
 import { FiHome } from "react-icons/fi";
-import useStudent from "../../Hooks/useStudent";
 import useInstructor from "../../Hooks/useInstructor";
 
 const Dashboard = () => {
@@ -19,12 +18,11 @@ const Dashboard = () => {
   // console.log(object);
 
   const isAdmin = Useradmin();
-  console.log(isAdmin);
+  // console.log(isAdmin);
 
-  // const isStudent = useStudent();
-  // console.log(isStudent)
+ 
   const isInstructor = useInstructor();
-  console.log(isInstructor);
+  // console.log(isInstructor);
   return (
     <div className=" mb-10 ">
       <div className="drawer lg:drawer-open">
@@ -75,7 +73,9 @@ const Dashboard = () => {
 
             {/* Student DashBoard */}
 
-            {/* {isStudent && 
+            {isAdmin || isInstructor?
+            <>
+            </>:
               <>
                 <li>
                   <Link
@@ -105,7 +105,8 @@ const Dashboard = () => {
                   </Link>
                 </li>
               </>
-            } */}
+            
+            }
 
             {/* Instructor DashBoard */}
 

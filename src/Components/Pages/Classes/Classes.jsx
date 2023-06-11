@@ -1,7 +1,8 @@
-import { useEffect, useState } from "react";
+import {  useEffect, useState } from "react";
 import ClassCard from "./ClassCard";
 
 const Classes = () => {
+
   const [classes,setClasses]=useState([])
   useEffect(()=>{
     fetch("http://localhost:4000/class")
