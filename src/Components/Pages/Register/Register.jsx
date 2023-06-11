@@ -78,10 +78,10 @@ const Register = () => {
     setShowVConfirmPassword(!showConfirmPassword);
   }
   return (
-    <div className="">
-      <div className="flex flex-col items-center justify-center min-h-screen bg-violet-400 p-40">
-        <div className="bg-white rounded-lg shadow-lg p-5 max-w-md w-full ">
-          <h2 className="text-2xl font-bold mb-4 text-gray-800 text-center">
+    <div className="bg-purple-200">
+      <div className="flex flex-col items-center justify-center min-h-screen  p-40 mb-10">
+        <div className="rounded-lg shadow-lg p-5 max-w-md w-full bg-teal-500">
+          <h2 className="text-2xl font-bold mb-4 text-red-700 text-center">
             Register
           </h2>
           <form onSubmit={handleSubmit(onSubmit)}>
@@ -204,9 +204,9 @@ const Register = () => {
               Register
             </button>
           </form>
-          <p>
+          <p className="mt-2 text-lg">
             New Here Create an account
-            <Link className="text-red-400" to="/login">
+            <Link className="text-orange-600" to="/login">
               {" "}
               Login
             </Link>

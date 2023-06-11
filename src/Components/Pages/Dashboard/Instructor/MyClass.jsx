@@ -14,10 +14,10 @@ const MyClass = () => {
   },[user?.email])
   return (
     <div>
-     <div className="overflow-x-auto">
+     <div className="overflow-x-auto bg-pink-200 rounded-lg shadow-xl p-4  ms-5">
   <table className="table">
     {/* head */}
-    <thead>
+    <thead className="bg-pink-500 text-white">
       <tr>
         <th>
          #
@@ -34,10 +34,10 @@ const MyClass = () => {
     <tbody>
       
       {
-           classes?.map((item,index)=><tr
+           classes?.map((item,index)=><tr className="border px-4 py-2 sm:w-auto"
            key={item._id}
            >
-            <th>
+            <th >
             {index+1}
             </th>
             <td>
@@ -57,10 +57,10 @@ const MyClass = () => {
             <td>{item.seats}</td>
             <td>{item.price}</td>
             <th>
-              <button className="btn btn-ghost btn-xs">Feedback</button>
+              <button className="bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded">Feedback</button>
             </th>
             <th>
-              <button className="btn btn-ghost btn-xs">Update</button>
+              <button className="bg-teal-700 hover:bg-teal-800 text-white font-bold py-2 px-4 rounded">Update</button>
             </th>
           </tr>)
       }

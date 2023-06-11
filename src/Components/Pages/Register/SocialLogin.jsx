@@ -33,10 +33,10 @@ const SocialLogin = () => {
   };
   return (
     <div>
-      <div className="divider"></div>
+      <div className="divider">or</div>
       <div className="w-full text-center my-4">
-        <button onClick={handleGoogle} className="btn btn-circle">
-          <FaGoogle></FaGoogle>
+        <button onClick={handleGoogle} className="btn w-full bg-red-200">
+          <FaGoogle className="text-orange-500 text-4xl"></FaGoogle>
         </button>
       </div>
     </div>

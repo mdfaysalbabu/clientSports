@@ -42,10 +42,10 @@ const Addclass = () => {
   };
 
   return (
-    <div className="bg-teal-400">
+    <div className=" w-full">
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className="max-w-md mx-auto p-4 bg-teal-400 rounded-lg shadow-lg"
+        className="max-w-md mx-auto p-4 bg-teal-400 rounded-lg shadow-lg m-10"
       >
         <div className="mb-4">
           <label

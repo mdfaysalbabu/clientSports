@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import { FaUserShield } from "react-icons/fa";
+import { FaUserShield, FaUserTag } from "react-icons/fa";
 import Swal from "sweetalert2";
 
 const ManageUser = () => {
@@ -91,9 +91,9 @@ const ManageUser = () => {
                   
                     <button disabled={`${user.role==='admin' || user.role=="instructor"?true:''}`}
                       onClick={() => handleInstructor(user)}
-                      className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+                      className="btn-ghost bg-teal-700 btn text-white font-bold py-2 px-4 rounded"
                     >
-                      Instructor
+                      <FaUserTag></FaUserTag>
                     </button>
                 
                 </td>

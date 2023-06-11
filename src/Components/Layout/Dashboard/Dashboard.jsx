@@ -1,32 +1,32 @@
 import { Link, Outlet } from "react-router-dom";
 import {
   FaBookOpen,
+  FaBookReader,
   FaBookmark,
   FaHome,
+  FaReadme,
   FaRegAddressCard,
   FaUserCircle,
-  
 } from "react-icons/fa";
 import Useradmin from "../../Hooks/userAdmin";
 import { FiHome } from "react-icons/fi";
 import useStudent from "../../Hooks/useStudent";
 import useInstructor from "../../Hooks/useInstructor";
 
-
 const Dashboard = () => {
   // Todo
   // const object= Useradmin();
   // console.log(object);
-  
-  const isAdmin=Useradmin();
+
+  const isAdmin = Useradmin();
   console.log(isAdmin);
 
   // const isStudent = useStudent();
   // console.log(isStudent)
-  const isInstructor = useInstructor()
+  const isInstructor = useInstructor();
   console.log(isInstructor);
   return (
-    <div className="">
+    <div className=" mb-10 ">
       <div className="drawer lg:drawer-open">
         <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
         <div className="drawer-content flex flex-col items-center justify-center ">
@@ -40,7 +40,7 @@ const Dashboard = () => {
         </div>
         <div className="drawer-side ">
           <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
-          <ul className="menu p-4 w-30 h-full  bg-purple-700 text-white">
+          <ul className="menu p-4 w-30 h-full  bg-purple-700 text-white shadow-2l">
             <div className="py-4 px-6">
               <h1 className="text-2xl font-bold">Dashboard</h1>
             </div>
@@ -48,18 +48,8 @@ const Dashboard = () => {
 
             {/* Admin DashBoard */}
 
-            {isAdmin && 
+            {isAdmin && (
               <>
-                <li>
-                  <Link
-                    to="/"
-                    href="#"
-                    className="flex items-center py-2 px-4 text-sm font-medium hover:bg-purple-600 transition duration-300"
-                  >
-                    <FiHome className="h-5 w-5 mr-2" />
-                    Admin Home
-                  </Link>
-                </li>
                 <li>
                   <Link
                     to="/dashboard/manageClass"
@@ -80,9 +70,8 @@ const Dashboard = () => {
                     Manage Users
                   </Link>
                 </li>
-                
               </>
-            }
+            )}
 
             {/* Student DashBoard */}
 
@@ -120,7 +109,7 @@ const Dashboard = () => {
 
             {/* Instructor DashBoard */}
 
-            {isInstructor && 
+            {isInstructor && (
               <>
                 <li>
                   <Link
@@ -153,25 +142,31 @@ const Dashboard = () => {
                 <Link to="/dashboard/totalUser">All User</Link>
               </li> */}
               </>
-            }
-         
-         {/* dashBoard Under */}
+            )}
+
+            {/* dashBoard Under */}
             <div className="divider"></div>
             <li>
-              <Link>
-                <FaHome></FaHome>Home
+              <Link
+                to="/"
+                href="#"
+                className="flex items-center py-2 px-4 text-sm font-medium hover:bg-purple-600 transition duration-300"
+              >
+                <FiHome className="h-5 w-5 mr-2" />
+                 Home
               </Link>
             </li>
-            <li>
+            <li className=" text-sm font-medium hover:bg-purple-600 transition duration-300">
               <Link>
-                <FaHome></FaHome>Review
+                <FaBookReader className="h-5 w-5 mr-2"></FaBookReader>Review
               </Link>
             </li>
-            <li>
+            <li className=" text-sm font-medium hover:bg-purple-600 transition duration-300">
               <Link>
-                <FaHome></FaHome>Analysis
+                <FaReadme className="h-5 w-5 mr-2"></FaReadme>Review
               </Link>
             </li>
+            
           </ul>
         </div>
       </div>

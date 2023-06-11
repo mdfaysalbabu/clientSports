@@ -59,7 +59,7 @@ const Manageclass = () => {
           </thead>
           <tbody>
             {classes?.map((item) => (
-              <tr className="bg-white" key={item._id}>
+              <tr className="bg-red-200" key={item._id}>
                 <td className="border px-2 py-8">
                   <img
                     className="w-28  object-cover object-center h-28"
@@ -87,14 +87,14 @@ const Manageclass = () => {
                   <button disabled={`${item.status==='approved' ||
                   item.status==='denied' ?true:''}`} 
                     onClick={() => handleApprove(item, true)}
-                    className="bg-green-500 py-3 hover:bg-green-700 text-white font-bold my-2 px-4 rounded mr-2 text-xs"
+                    className="bg-teal-500 py-3  text-white font-bold my-2 px-4 rounded mr-2 text-xs"
                   >
                     Approve
                   </button>
                   <button disabled={`${item.status==='approved' ||
                   item.status==='denied' ?true:''}`} 
                     onClick={() => handleApprove(item, false)}
-                    className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded mr-2 text-xs my-2"
+                    className="bg-red-500  text-white font-bold py-2 px-4 rounded mr-2 text-xs my-2"
                   >
                     Deny
                   </button>

@@ -39,9 +39,9 @@ const Login = () => {
   }
   return (
     <div>
-      <div className="flex justify-center items-center h-screen bg-purple-300">
-        <div className="w-full md:w-96 bg-white rounded-lg shadow-md p-8">
-          <h2 className="text-2xl text-center font-bold mb-6">Login</h2>
+      <div className="flex justify-center items-center h-screen bg-purple-200 mb-10">
+        <div className="w-full md:w-96 bg-teal-500 rounded-lg shadow-md p-8">
+          <h2 className="text-2xl text-center text-red-700 font-bold mb-6">Login</h2>
           <form onSubmit={handleSubmit(onSubmit)}>
             <div className="mb-4">
               <label
@@ -91,8 +91,8 @@ const Login = () => {
               Login
             </button>
           </form>
-          <p>
-            New Here Create an account<Link className="text-red-400" to="/register"> Register</Link>
+          <p className="text-lg">
+            New Here Create an account<Link className="text-orange-600" to="/register"> Register</Link>
           </p>
           <SocialLogin></SocialLogin>
         </div>
