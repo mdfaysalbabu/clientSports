@@ -25,7 +25,7 @@ const Login = () => {
         showConfirmButton: false,
         timer: 1500
       });
-      navigate(from,{replace:true})
+      navigate(from,{replace:true});
     })
     .catch(error=>{
       console.log(error.message);
@@ -50,7 +50,7 @@ const Login = () => {
               >
                 Email:
               </label>
-              <input
+              <input 
                 type="email"
                 {...register("email", { required: true })}
                 id="email"

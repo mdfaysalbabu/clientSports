@@ -6,17 +6,20 @@ import Register from "../Pages/Register/Register";
 import Instructor from "../Pages/Instructor/Instructor";
 import Errorpage from "../Pages/Errorpage/Errorpage";
 import Dashboard from "../Layout/Dashboard/Dashboard";
-import Students from "../Pages/Dashboard/Students/Students";
+import Students from "../Pages/Dashboard/Students/SelectedClass";
 import Enroll from "../Pages/Dashboard/Students/Enroll";
 import Addclass from "../Pages/Dashboard/Instructor/Addclass";
-import Secret from "./Secret";
+
 import PrivetRoutes from "./PrivetRoutes";
 import Alluser from "../Pages/Dashboard/AllUser/Alluser";
 import Classes from "../Pages/Classes/Classes";
 import Manageclass from "../Pages/Dashboard/Admindashboard/Manageclass";
 import ManageUser from "../Pages/Dashboard/Admindashboard/manageUser";
 import MyClass from "../Pages/Dashboard/Instructor/myClass";
-
+import Payment from "../Pages/Dashboard/Payments/Payment";
+import SelectedClass from "../Pages/Dashboard/Students/SelectedClass";
+import PaymentHistroy from "../Pages/Dashboard/Students/PaymentHistory";
+import PaymentHistory from "../Pages/Dashboard/Students/PaymentHistory";
 
 const router = createBrowserRouter([
   {
@@ -40,50 +43,62 @@ const router = createBrowserRouter([
         path: "/instructor",
         element: <Instructor></Instructor>,
       },
+     
       {
-        path:'/secret',
-        element:<PrivetRoutes><Secret></Secret></PrivetRoutes>
+        path: "/classes",
+        element: <Classes></Classes>,
+      },
+    ],
+  },
+  {
+    path: "dashboard",
+    element: (
+       
+        <PrivetRoutes><Dashboard></Dashboard></PrivetRoutes>
+      
+    ),
+    children: [
+      {
+        path: "students",
+        element: <SelectedClass></SelectedClass>,
       },
       {
-          path:'/classes',
-          element:<Classes></Classes>
+        path: "enroll",
+        element: <Enroll></Enroll>,
+        loader: () => fetch("http://localhost:4000/payments"),
       },
       {
-        path: "dashboard",
-        element: <PrivetRoutes><Dashboard></Dashboard></PrivetRoutes>,
-        children: [
-          {
-            path: "students",
-            element:<Students></Students>
-          },
-          {
-            path:"enroll",
-            element:<Enroll></Enroll>
-          },
-          {
-            path:"totalUser",
-            element:<Alluser></Alluser>
-          },
-          // instructor Routes
-          {
-             path:"addClass",
-             element:<Addclass></Addclass>
-          },
-          {
-            path:"myClass",
-            element:<MyClass></MyClass>
-          },
-          // admin routes
-          {
-            path:'manageClass',
-            element:<Manageclass></Manageclass>
-          
-          },
-          {
-            path:'manageUser',
-            element:<ManageUser></ManageUser>
-          }
-        ],
+        path: "payment",
+        element: <PaymentHistory></PaymentHistory>,
+        loader: () => fetch("http://localhost:4000/payments"),
+      },
+      {
+        path: "totalUser",
+        element: <Alluser></Alluser>,
+      },
+      // instructor Routes
+      {
+        path: "addClass",
+        element: <Addclass></Addclass>,
+      },
+      {
+        path: "myClass",
+        element: <MyClass></MyClass>,
+      },
+      // admin routes
+      {
+        path: "manageClass",
+        element: <Manageclass></Manageclass>,
+      },
+      {
+        path: "manageUser",
+        element: <ManageUser></ManageUser>,
+      },
+      {
+        path: "payment/:id",
+        element: <Payment></Payment>,
+        loader: ({ params }) =>
+          fetch(`http://localhost:4000/carts/${params.id}`),
       },
     ],
   },

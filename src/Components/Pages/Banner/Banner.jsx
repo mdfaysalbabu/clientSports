@@ -27,7 +27,7 @@ const Banner = () => {
           selected={currentIndex}
           onTransitionEnd={({ currentIndex }) => setCurrentIndex(currentIndex)}
         >
-          <div data-src="https://media.umbraco.io/dwtc/00wmrjpv/academies_banner_v5.jpg">
+          <div data-src="https://png.pngtree.com/background/20210711/original/pngtree-blue-sky-picture-image_1113901.jpg">
             <div className="slider-overlay absolute left-20 lg:top-30 lg:left-96">
               <h2 className="text-4xl font-bold text-gradient bg-gradient-to-r from-red-500 to-teal-500  text-transparent  bg-clip-text">
                 Welcome to Our Academy
@@ -42,7 +42,7 @@ const Banner = () => {
               </div>
             </div>
           </div>
-          <div data-src="https://png.pngtree.com/background/20210711/original/pngtree-blue-sky-picture-image_1113901.jpg">
+          <div data-src="https://media.umbraco.io/dwtc/00wmrjpv/academies_banner_v5.jpg">
             <div className="slider-overlay absolute left-20 lg:top-30 lg:left-96">
               <h2 className="text-4xl font-bold text-gradient bg-gradient-to-r from-red-500 to-teal-500  text-transparent  bg-clip-text">
                 Learn from Top Instructors
@@ -59,7 +59,7 @@ const Banner = () => {
           </div>
           <div
             className=""
-            data-src="https://indiansportsassociation.org/wp-content/uploads/2019/06/banner.jpg"
+            data-src="https://img.freepik.com/premium-photo/close-up-boxing-gloves-basketball-football-tennis-golf-balls-discus_107420-15699.jpg?size=626&ext=jpg&ga=GA1.1.919388702.1686449806&semt=ais"
           >
             <div className="slider-overlay absolute left-20 lg:top-30 lg:left-96">
               <h2 className="text-4xl font-bold text-gradient bg-gradient-to-r from-red-500 to-teal-500  text-transparent  bg-clip-text">

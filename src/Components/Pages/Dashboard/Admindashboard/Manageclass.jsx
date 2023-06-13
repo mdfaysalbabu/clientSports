@@ -1,10 +1,9 @@
 import { useQuery } from "@tanstack/react-query";
-import { useLoaderData } from "react-router-dom";
 
 const Manageclass = () => {
 
   const { data: classes = [], refetch } = useQuery(["class"], async () => {
-    const res = await fetch("http://localhost:4000/class");
+    const res = await fetch(`http://localhost:4000/class/${true}`);
     const data = await res.json();
     return data;
   });

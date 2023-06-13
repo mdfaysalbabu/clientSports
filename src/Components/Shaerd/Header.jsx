@@ -44,13 +44,11 @@ const Header = () => {
       <li className="text-teal-500 hover:text-yellow-400 text-xl font-semibold">
         <Link to="/classes">Classes</Link>
       </li>
-      
-     {
-      user &&
-      <li className="text-teal-500 hover:text-yellow-400 text-xl font-semibold">
-        <Link to="/dashboard">Dashboard</Link>
-      </li>
-     }
+      {user && (
+        <li className="text-teal-500 hover:text-yellow-400 text-xl font-semibold">
+          <Link to="/dashboard">Dashboard</Link>
+        </li>
+      )}
 
       <li>
         <label className="swap swap-rotate">
@@ -108,7 +106,7 @@ const Header = () => {
             </ul>
           </div>
           <a className="text-transparent bg-gradient-to-r from-teal-400 to-yellow-400 bg-clip-text font-bold text-3xl">
-            Sports Academy
+            Sports Velocity
           </a>
         </div>
         <div className="navbar-center hidden lg:flex">
@@ -122,14 +120,13 @@ const Header = () => {
               </span>
               <div className=" rounded-2xl">
                 <img
-                  className="rounded-2xl w-20 p-2"
+                  className="rounded-2xl w-14 p-2"
                   src={user?.photoURL}
+                  title={user.displayName}
                   alt=""
                 />
               </div>
-              {/* <button onClick={handleLogOut} className="btn btn-ghost">
-                Logout
-              </button> */}
+
               <button
                 onClick={handleLogOut}
                 className="bg-gradient-to-r from-orange-400 to-pink-500 hover:from-pink-500 hover:to-purple-500 text-white font-bold py-2 px-4 rounded-full transition duration-300 ease-in-out"

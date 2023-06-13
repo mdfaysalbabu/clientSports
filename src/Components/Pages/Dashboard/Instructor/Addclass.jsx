@@ -34,7 +34,7 @@ const Addclass = () => {
             timer: 1500,
             
           });
-          reset;
+          reset();
         } else {
           console.log("error");
         }
@@ -92,7 +92,7 @@ const Addclass = () => {
             defaultValue={user?.displayName} readOnly
             {...register("instructorName", { required: true })}
             className="w-full px-4 py-2 border border-gray-300 rounded-lg bg-gray-100 cursor-not-allowed"
-            // value={instructor.displayName}
+            
           />
         </div>
         <div className="mb-4">
@@ -108,7 +108,7 @@ const Addclass = () => {
             defaultValue={user?.email} readOnly
             {...register("instructorEmail", { required: true })}
             className="w-full px-4 py-2 border border-gray-300 rounded-lg bg-gray-100 cursor-not-allowed"
-            // value={instructor.email}
+            
           />
         </div>
         <div className="mb-4">
@@ -149,6 +149,19 @@ const Addclass = () => {
              defaultValue={'pending'}
              readOnly
             {...register("status", { required: true })}
+            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+            required
+          />
+        </div>
+        <div className="mb-4 hidden">
+          <label htmlFor="status" className="text-gray-700 font-semibold mb-2">
+            Enrolled
+          </label>
+          <input
+            type="text"
+             defaultValue={0}
+             readOnly
+            {...register("enrolledStudents", { required: true })}
             className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
             required
           />

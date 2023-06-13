@@ -47,7 +47,7 @@ const Authprovider = ({ children }) => {
       if(currentUser){
         axios.post('http://localhost:4000/jwt',{email:currentUser.email})
         .then(data=>{
-          console.log(data.data.token)
+         
           localStorage.setItem('total-token',data.data.token)
           setLoading(false);
         })
@@ -55,6 +55,7 @@ const Authprovider = ({ children }) => {
       else{
         localStorage.removeItem('total-token')
       }
+      setLoading(false)
       
     });
     return () => {
@@ -65,7 +66,7 @@ const Authprovider = ({ children }) => {
   const updateUser = (name, photo) => {
     return updateProfile(auth.currentUser, {
       displayName: name,
-      photoURL: photo,
+      photoURL: photo, 
     });
   };
   const authInfo = {

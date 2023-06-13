@@ -1,13 +1,30 @@
 import { useContext } from "react";
 import Swal from "sweetalert2";
 import { AuthContext } from "../../Providers/Authprovider";
+import Useradmin from "../../Hooks/userAdmin";
+import useInstructor from "../../Hooks/useInstructor";
+import { useNavigate } from "react-router-dom";
 
 
 const ClassCard = ({item}) => {
   const {user}=useContext(AuthContext)
+  const navigate=useNavigate()
+     const isInstructor=useInstructor();
+     const isAdmin=Useradmin();
     const{name,image,instructorName,instructorEmail,seats,price}=item;
     const handleAddtoCart=()=>{
-      const orderDetails={name:item.name,email:user.email,instructorName:item.instructorName,seats:item.seats,price:item.price}
+      if(!user)
+      {
+        Swal.fire({
+          title: 'warning!',
+          text: 'please login',
+          icon: 'warning',
+          confirmButtonText: 'ok'
+        })
+        navigate('/login');
+        return
+      }
+      const orderDetails={name:item.name,email:user.email,instructorName:item.instructorName,seats:item.seats,price:item.price,image:item.image,enrolledStudents:item.enrolledStudents,classId:item._id}
       fetch('http://localhost:4000/carts',{
          method:"POST",
          headers:{
@@ -19,7 +36,7 @@ const ClassCard = ({item}) => {
       .then(info=>{
         if(info.insertedId){
         Swal.fire({
-          position: 'top-end',
+          position: 'center',
           icon: 'success',
           title: 'successfully add to cart',
           showConfirmButton: false,
@@ -31,7 +48,7 @@ const ClassCard = ({item}) => {
     }
   return (
     <div>
-      <div className="max-w-md mx-auto  rounded-lg overflow-hidden shadow-lg bg-gradient-to-r from-blue-400 to-indigo-500 mt-10 mb-10">
+      <div className={`max-w-md mx-auto  rounded-lg overflow-hidden shadow-lg bg-gradient-to-r from-blue-400 to-indigo-500 mt-10 mb-10  ${seats==='0'&& 'bg-red-300'}`}>
         <img
           className="w-full h-56 object-cover object-center"
           src={image}
@@ -45,9 +62,19 @@ const ClassCard = ({item}) => {
             <p className="mr-4">Available Seats: {seats}</p>
             <p>Price: ${price}</p>
           </div>
-          <button onClick={()=>handleAddtoCart(item)} className="block w-full py-2 px-4 bg-gradient-to-r from-teal-500 to-yellow-400 hover:from-teal-400 hover:to-yellow-500  text-white font-semibold  hover:text-white transition-all duration-300">
+          {
+        isAdmin || isInstructor|| seats==='0'
+        ?
+        <button disabled onClick={()=>handleAddtoCart(item)} className="block w-full py-2 px-4 bg-gradient-to-r from-teal-500 to-yellow-400 hover:from-teal-400 hover:to-yellow-500  text-white font-semibold  hover:text-white transition-all duration-300">
             Add to Cart
           </button>
+          :
+          <button  onClick={()=>handleAddtoCart(item)} className="block w-full py-2 px-4 bg-gradient-to-r from-teal-500 to-yellow-400 hover:from-teal-400 hover:to-yellow-500  text-white font-semibold  hover:text-white transition-all duration-300">
+            Add to Cart
+          </button>
+       }
+         
+       
         </div>
       </div>
     </div>

@@ -4,6 +4,7 @@ import {
   FaBookReader,
   FaBookmark,
   FaHome,
+  FaPaypal,
   FaReadme,
   FaRegAddressCard,
   FaUserCircle,
@@ -11,8 +12,11 @@ import {
 import Useradmin from "../../Hooks/userAdmin";
 import { FiHome } from "react-icons/fi";
 import useInstructor from "../../Hooks/useInstructor";
+import { useContext } from "react";
+import { AuthContext } from "../../Providers/Authprovider";
 
 const Dashboard = () => {
+ 
   // Todo
   // const object= Useradmin();
   // console.log(object);
@@ -79,14 +83,6 @@ const Dashboard = () => {
               <>
                 <li>
                   <Link
-                    to="/"
-                    href="#"
-                    className="flex items-center py-2 px-4 text-sm font-medium hover:bg-purple-600 transition duration-300"
-                  >
-                    <FiHome className="h-5 w-5 mr-2" />
-                    Student Home
-                  </Link>
-                  <Link
                     to="/dashboard/students"
                     href="#"
                     className="flex items-center py-2 px-4 text-sm font-medium hover:bg-purple-600 transition duration-300"
@@ -102,6 +98,14 @@ const Dashboard = () => {
                   >
                     <FaBookmark className="h-5 w-5 mr-2" />
                     My Enrolled Classes
+                  </Link>
+                  <Link
+                    to="/dashboard/payment"
+                    href="#"
+                    className="flex items-center py-2 px-4 text-sm font-medium hover:bg-purple-600 transition duration-300"
+                  >
+                    <FaPaypal className="h-5 w-5 mr-2" />
+                    Payment History
                   </Link>
                 </li>
               </>
@@ -139,9 +143,7 @@ const Dashboard = () => {
                     My Class
                   </Link>
                 </li>
-                {/* <li>
-                <Link to="/dashboard/totalUser">All User</Link>
-              </li> */}
+                
               </>
             )}
 

@@ -1,6 +1,6 @@
-# Project Name
+# Sports Velocity
 
-![Project Logo](logo.png)
+
 
 
 ## Features

@@ -30,7 +30,7 @@ const Register = () => {
           console.log(loggedUser);
           updateUser(data.name, data.photoURL)
             .then(() => {
-              const saveUser={name:data.name,email:data.email}
+              const saveUser={name:data.name,email:data.email,photoUrl:data.photoURL}
               console.log(saveUser)
               fetch('http://localhost:4000/users',{
                 method:"POST",
@@ -179,18 +179,16 @@ const Register = () => {
                 placeholder="Enter Password"
                 className="input input-bordered"
               />
-              <button className="relative -top-8 left-96 w-it" onClick={handleConfirmPasswordVisibility}>
+              <button className="relative -top-8 left-96  w-it" onClick={handleConfirmPasswordVisibility}>
                 {
                   showConfirmPassword ? <FaRegEye /> : <FaEyeSlash />
                 }
               </button>
-              {/* <button className=" rounded-lg bg-black text-white" onClick={handleTogglePasswordVisibility}>
-                                    {showPassword ? 'Hide' : 'Show'}
-                                </button> */}
+              
               {errors.confirmPassword && (
                 <span>{errors.confirmPassword.message}</span>
               )}
-              {/* {errors.password && <span className=" text-red-500"> ||{errors.confirmPassword.message} </span>} */}
+              
               {errors.password?.type === "pattern" && (
                 <span className=" text-red-500">
                   Ensure string has two digits
