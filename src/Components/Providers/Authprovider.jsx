@@ -45,7 +45,7 @@ const Authprovider = ({ children }) => {
       setUser(currentUser);
       // get token and set localStorage token
       if(currentUser){
-        axios.post('http://localhost:4000/jwt',{email:currentUser.email})
+        axios.post('https://sports-academy-server-pi.vercel.app/jwt',{email:currentUser.email})
         .then(data=>{
          
           localStorage.setItem('total-token',data.data.token)

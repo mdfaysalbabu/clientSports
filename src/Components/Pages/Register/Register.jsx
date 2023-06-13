@@ -32,7 +32,7 @@ const Register = () => {
             .then(() => {
               const saveUser={name:data.name,email:data.email,photoUrl:data.photoURL}
               console.log(saveUser)
-              fetch('http://localhost:4000/users',{
+              fetch('https://sports-academy-server-pi.vercel.app/users',{
                 method:"POST",
                 headers:{
                   'content-type':'application/json'

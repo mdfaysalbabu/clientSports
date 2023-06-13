@@ -25,7 +25,7 @@ const ClassCard = ({item}) => {
         return
       }
       const orderDetails={name:item.name,email:user.email,instructorName:item.instructorName,seats:item.seats,price:item.price,image:item.image,enrolledStudents:item.enrolledStudents,classId:item._id}
-      fetch('http://localhost:4000/carts',{
+      fetch('https://sports-academy-server-pi.vercel.app/carts',{
          method:"POST",
          headers:{
           'content-type':'application/json'

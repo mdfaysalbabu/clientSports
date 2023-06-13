@@ -7,7 +7,7 @@ const SelectedClass = () => {
   // const { user } = useContext(AuthContext);
   // const [classes, setClasses] = useState([]);
   // useEffect(() => {
-  //   fetch(`http://localhost:4000/carts?email=${user?.email}`)
+  //   fetch(`https://sports-academy-server-pi.vercel.app/carts?email=${user?.email}`)
   //     .then((res) => res.json())
   //     .then((data) => {
   //       console.log(data);
@@ -18,7 +18,7 @@ const SelectedClass = () => {
   console.log(classes);
 
   const handleDelete=(id)=>{
-      fetch(`http://localhost:4000/carts/${id}`,{
+      fetch(`https://sports-academy-server-pi.vercel.app/carts/${id}`,{
         method:"DELETE"
       })
       .then(res=> res.json())

@@ -3,7 +3,7 @@ import { useQuery } from "@tanstack/react-query";
 const Manageclass = () => {
 
   const { data: classes = [], refetch } = useQuery(["class"], async () => {
-    const res = await fetch(`http://localhost:4000/class/${true}`);
+    const res = await fetch(`https://sports-academy-server-pi.vercel.app/class/${true}`);
     const data = await res.json();
     return data;
   });
@@ -12,7 +12,7 @@ const Manageclass = () => {
     if (isPending) {
       console.log(isPending);
       const details = { i: true };
-      fetch(`http://localhost:4000/class/${item._id}`, {
+      fetch(`https://sports-academy-server-pi.vercel.app/class/${item._id}`, {
         method: "PATCH",
         headers: {
           "content-type": "application/json",
@@ -26,7 +26,7 @@ const Manageclass = () => {
         });
     } else {
       const details = { i: false };
-      fetch(`http://localhost:4000/class/${item._id}`, {
+      fetch(`https://sports-academy-server-pi.vercel.app/class/${item._id}`, {
         method: "PATCH",
         headers: {
           "content-type": "application/json",

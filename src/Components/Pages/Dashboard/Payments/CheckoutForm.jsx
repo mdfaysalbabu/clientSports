@@ -20,7 +20,7 @@ const CheckoutForm = ({ price,info}) => {
     if (price > 0) {
       axios
         .post(
-          "http://localhost:4000/create-payment-intent",
+          "https://sports-academy-server-pi.vercel.app/create-payment-intent",
           { price },
           {
             headers: {
@@ -91,7 +91,7 @@ const CheckoutForm = ({ price,info}) => {
         photo:image,
         price:info.price
       };
-      axios.post("http://localhost:4000/payments", payment, {
+      axios.post("https://sports-academy-server-pi.vercel.app/payments", payment, {
           headers: {
             authorization: `bearer ${token}`,
           },

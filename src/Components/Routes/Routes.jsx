@@ -65,12 +65,12 @@ const router = createBrowserRouter([
       {
         path: "enroll",
         element: <Enroll></Enroll>,
-        loader: () => fetch("http://localhost:4000/payments"),
+        loader: () => fetch("https://sports-academy-server-pi.vercel.app/payments"),
       },
       {
         path: "payment",
         element: <PaymentHistory></PaymentHistory>,
-        loader: () => fetch("http://localhost:4000/payments"),
+        loader: () => fetch("https://sports-academy-server-pi.vercel.app/payments"),
       },
       {
         path: "totalUser",
@@ -98,7 +98,7 @@ const router = createBrowserRouter([
         path: "payment/:id",
         element: <Payment></Payment>,
         loader: ({ params }) =>
-          fetch(`http://localhost:4000/carts/${params.id}`),
+          fetch(`https://sports-academy-server-pi.vercel.app/carts/${params.id}`),
       },
     ],
   },

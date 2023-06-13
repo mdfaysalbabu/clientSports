@@ -28,4 +28,4 @@
 
 ## Live Site
 
-Check out the live site [here](https://www.example.com).
+Check out the live site [here](https://sports-academy-b5235.web.app/).

@@ -10,7 +10,7 @@ const Useradmin=()=>{
 const{data:isAdmin}=useQuery({
     queryKey:['isAdmin',user?.email],
     queryFn:async()=>{
-        const res = await axios.get(`http://localhost:4000/users/admin/${user?.email}`);
+        const res = await axios.get(`https://sports-academy-server-pi.vercel.app/users/admin/${user?.email}`);
         
         
         return res.data

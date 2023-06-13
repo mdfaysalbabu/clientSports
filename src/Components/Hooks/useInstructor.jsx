@@ -14,7 +14,7 @@ const useInstructor=()=>{
 const{data:isInstructor}=useQuery({
     queryKey:['isInstructor',user?.email],
     queryFn:async()=>{
-        const res = await axios.get(`http://localhost:4000/users/instructor/${user?.email}`);
+        const res = await axios.get(`https://sports-academy-server-pi.vercel.app/users/instructor/${user?.email}`);
         
         // console.log('is instructor response',res)
         return res.data

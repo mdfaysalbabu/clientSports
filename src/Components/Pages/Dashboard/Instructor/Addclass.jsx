@@ -15,7 +15,7 @@ const Addclass = () => {
 
   const onSubmit = (classData) => {
     console.log(classData);
-    fetch("http://localhost:4000/class", {
+    fetch("https://sports-academy-server-pi.vercel.app/class", {
       method: "POST",
       headers: {
         "content-type": "application/json",

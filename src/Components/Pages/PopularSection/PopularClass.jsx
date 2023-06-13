@@ -5,7 +5,7 @@ const PopularClass = () => {
   const [sortClass,setSortClass]=useState([]);
   const [classes,setClasses]=useState([]);
   useEffect(()=>{
-    fetch(`http://localhost:4000/class/${false}`)
+    fetch(`https://sports-academy-server-pi.vercel.app/class/${false}`)
     .then(res=>res.json())
     .then(data=>{
     const myData=data.slice(0,6);
