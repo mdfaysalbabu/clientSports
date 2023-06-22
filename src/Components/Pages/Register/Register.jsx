@@ -24,11 +24,13 @@ const Register = () => {
     const { password, confirmPassword } = data;
     if (password === confirmPassword) {
       console.log("equal");
+
       createUser(data.email, data.password)
         .then((result) => {
           const loggedUser = result.user;
           console.log(loggedUser);
           updateUser(data.name, data.photoURL)
+          
             .then(() => {
               const saveUser={name:data.name,email:data.email,photoUrl:data.photoURL}
               console.log(saveUser)
