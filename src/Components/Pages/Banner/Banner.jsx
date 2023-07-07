@@ -5,6 +5,10 @@ import PopularSection from "../PopularSection/PopularSection";
 import AwesomeSlider from "react-awesome-slider";
 import "react-awesome-slider/dist/styles.css";
 import PopularClass from "../PopularSection/PopularClass";
+import Moreextra from "../../Moresection/Moreextra";
+import Difsection from "../../Moresection/Difsection";
+import Funsection from "../../Moresection/Funsection";
+import Achivesection from "../../Moresection/Achivesection";
 
 const Banner = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -82,6 +86,18 @@ const Banner = () => {
       </div>
       <div>
         <PopularSection></PopularSection>
+      </div>
+      <div>
+        <Moreextra></Moreextra>
+      </div>
+      <div>
+        <Difsection></Difsection>
+      </div>
+      <div>
+        <Achivesection></Achivesection>
+      </div>
+      <div>
+        <Funsection></Funsection>
       </div>
       <Extrasection></Extrasection>
     </div>
